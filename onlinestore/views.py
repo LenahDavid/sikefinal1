@@ -18,15 +18,15 @@ from rest_framework.views import APIView
 from .utils import cookieCart, cartData, guestOrder
 
 def store(request):
-    data = cartData(request)
+   data = cartData(request)
 
-    cartItems = data['cartItems']
-    order = data['order']
-    items = data['items']
+   cartItems = data['cartItems']
+   order = data['order']
+   items = data['items']
 
-    products = Product.objects.all()
-    context = {'products':products, 'cartItems':cartItems}
-    return render(request, 'posApp/store.html', context)
+   products = Product.objects.all()
+   context = {'products':products, 'cartItems':cartItems}
+   return render(request, 'posApp/store.html', context)
 
 def cart(request):
 	data = cartData(request)
@@ -38,13 +38,13 @@ def cart(request):
 	return render(request, 'posApp/cart.html', context)
 
 def checkout1(request):
- data = cartData(request)
-	
- cartItems = data['cartItems']
- order = data['order']
- items = data['items']
- context = {'items':items, 'order':order, 'cartItems':cartItems}
- return render(request, 'posApp/checkout1.html', context)
+   data = cartData(request)
+      
+   cartItems = data['cartItems']
+   order = data['order']
+   items = data['items']
+   context = {'items':items, 'order':order, 'cartItems':cartItems}
+   return render(request, 'posApp/checkout1.html', context)
 
 
 def updateItem(request):

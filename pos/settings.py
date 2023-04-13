@@ -54,9 +54,11 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'celery',
     'mirai',
-    'onlinestore',
+    # 'onlinestore',
     #'accounts.apps.AccountsConfig',
 ]
+AUTH_USER_MODEL = 'app1.CustomUser'
+AUTH_USER_MODEL = 'accounts.User'
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES':[

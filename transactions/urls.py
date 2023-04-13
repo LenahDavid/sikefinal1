@@ -11,7 +11,7 @@ urlpatterns = [
     path("deposit/", DepositMoneyView.as_view(), name="deposit_money"),
     path("report/", TransactionRepostView.as_view(), name="transaction_report"),
     path("withdraw/", WithdrawMoneyView.as_view(), name="withdraw_money"), 
-    path('transaction/', views.Transaction_list),
+    path('', views.Transaction_list),
     path('transaction/<int:id>', views.Transaction_detail),
     
 

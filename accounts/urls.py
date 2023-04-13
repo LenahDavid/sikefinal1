@@ -8,7 +8,7 @@ app_name = 'accounts'
 
 urlpatterns = [
     path(
-        "login/", UserLoginView.as_view(),
+        "", UserLoginView.as_view(),
         name="user_login"
     ),
     path(
@@ -21,7 +21,7 @@ urlpatterns = [
     ),
     path('user/', views.User_list),
     path('user/<int:id>', views.User_detail),
-    path('', views.BankAccountType_list),
+    path('test1/', views.BankAccountType_list),
     path('bankAccountType/<int:id>', views.BankAccountType_detail),
     path('userBankAccout/', views.UserBankAccount_list),
     path('userBankAccount/<int:id>', views.UserBankAccount_detail),
