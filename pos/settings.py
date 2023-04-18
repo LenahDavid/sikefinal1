@@ -54,6 +54,8 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'celery',
     'mirai',
+    'backend',
+    #'registration',
     # 'onlinestore',
     #'accounts.apps.AccountsConfig',
 ]
@@ -113,7 +115,7 @@ DATABASES = {
         'USER': 'root',
         'PASSWORD': '',
         'HOST':'127.0.0.1',
-        'PORT':'3406',
+        'PORT':'3306',
         'OPTIONS': {
                 'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
             },
@@ -186,3 +188,11 @@ CELERY_TIMEZONE = TIME_ZONE
 
 
 CORS_ORIGIN_ALLOW_ALL = True
+
+
+STRIPE_PUBLIC_KEY = "pk_test_51MkuNNFwKr5aaAm3ddMIyoXngDVADECyq92wP2Bly3CIyRQnCFuiFgQelpYMdccJaQ1y7tpq6XXwzQ1smUtPvtDn00CTfvMp2D"
+STRIPE_PRIVATE_KEY = "sk_test_51MkuNNFwKr5aaAm3GqXkJwSMCL6t7TlDZsi8h0zBvBEK9pb3e6mqFlVANy04Yqcq2SdB0ysgyHIBvn31yVVA6xz400CKFJR8Lp"
+STRIPE_WEBHOOK_SECRET = ""
+
+
+EMAIL_BACKEND ='django.core.mail.backends.console.EmailBackend'

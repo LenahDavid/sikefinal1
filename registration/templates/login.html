@@ -1,0 +1,152 @@
+{% load static %}
+
+{% for message in messages %}
+<h3>{{messages}}</h3>
+{% endfor %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="{% static 'login.css' %}"> -->
+    <style>
+      #login-form {
+    width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border: 1px solid #ccc;
+}
+
+#login-form label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+#login-form input {
+    width: 100%;
+    padding: 12px 20px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+#login-form #login-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+#login-form .saved-emails {
+    margin-top: 20px;
+}
+
+#login-form .saved-emails a {
+    color: #666;
+}
+
+#login-form .saved-emails a:hover {
+    text-decoration: underline;
+}
+
+#login-form .signup-link {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#login-form .signup-link a {
+    color: #666;
+}
+
+#login-form .signup-link a:hover {
+    text-decoration: underline;
+}
+
+.form-group {
+    display: flex;
+    align-items: center;
+}
+
+#remember-me {
+    margin-right: 10px;
+}
+
+#remember-me + label {
+    margin: 0;
+}
+    </style>
+</head>
+<body>
+    <div id="login-form">
+        <h1>Login</h1>
+        <form action="" method="post">
+            {% csrf_token %}
+            <label for="email">Email</label>
+            <input type="text" id="email" name="email">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password">
+            <div class="form-group">
+                <input type="checkbox" id="remember-me" name="remember-me"> <label for="remember-me">Remember me</label>
+            </div>
+            <button type="submit" value="login">Log In</button>
+            <div class="saved-emails">
+                <p>Or login with one of your saved emails:</p>
+                <ul id="saved-emails-list">
+                    <li><a href="#">example1@email.com</a></li>
+                    <li><a href="#">example2@email.com</a></li>
+                    <!-- Add more emails as needed -->
+                </ul>
+            </div>
+            <div class="signup-link">
+                <p>Don't have an account? <a href="signup.html" id="signup-now">Sign up now</a></p>
+            </div>
+        </form>
+    </div>
+    
+</body>
+<script>
+    // Select the login button
+var loginBtn = document.querySelector("#login-button");
+
+// Add a click event listener to the login button
+loginBtn.addEventListener("click", function(event) {
+    event.preventDefault();
+    // Get the values of the email/username and password inputs
+    var email = document.querySelector("#username-email").value;
+    var password = document.querySelector("#password").value;
+    var rememberMe = document.querySelector("#remember-me").checked;
+
+    // Validate the form inputs
+    if (email === "" || password === "") {
+        alert("Please enter a valid email/username and password.");
+    } else {
+        // Check if the email/username and password are correct
+        // You can use AJAX, Fetch or any other method to check the credentials
+        // against the server
+        // Your code here
+        // Assuming this is the callback function from the server
+        function callbackFunction(data){
+          if(data.status === "success"){
+            // Check if remember me is checked
+            if (rememberMe) {
+                // Store the email/username in local storage
+                localStorage.setItem("email", email);
+            }
+            // Redirect to the dashboard
+            window.location.href = "dashboard.html";
+          }else{
+            alert("Incorrect email/username or password.")
+          }
+        }
+    }
+});
+
+</script>
+</html>

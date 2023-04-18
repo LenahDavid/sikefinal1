@@ -1,0 +1,36 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'dashboard.css' %}">
+</head>
+<body>
+    <form action="dashboard.html" method="post">
+    <section>
+        <header>
+            <div >
+                <img src="images/logo.png" alt="sikepay logo">
+                
+                        <label for="services-select">Our services:</label>
+                        <select name="services" id="services-select"> 
+                            <option value="">Select a service</option>
+                            <option value="pay"><a href="pay.html">pay</a></option>
+                            <option value="add-wallet"><a href="add-wallet.html">Add wallet</a></option>
+                            <option value="remove-wallet"><a href="remove-wallet.html">Remove wallet</a></option>
+                            <option value="history"><a href="history.html">Transaction history</a></option>
+                        </select>
+                
+                <button class="profile">user-profile</button>
+                <button class="logout">logout</button>
+            </div>
+        </header>
+    </section>
+    </form>
+</body>
+
+</html>

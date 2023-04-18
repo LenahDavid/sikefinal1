@@ -1,0 +1,75 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Registration Form</title>
+    <link rel="stylesheet" href="{% static 'signup.css' %}">
+</head>
+    <form action="" method="post">
+        {% csrf_token %}
+        <div id="signup-form">
+            <h5>If you want to register your business please fill in the form below</h5>
+            <form>
+                <div class="form-group">
+                    <label for="business name">BUSINESS NAME</label>
+                    <input type="text" id="business name" name="business name" required>
+                </div>
+                <div class="form-group">
+                    <label for="contact number">CONTACT NUMBER/label>
+                    <input type="text" id="contact number" name="contact number" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">EMAIL</label>
+                    <input type="text" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="Country">COUNTRY</label>
+                    <input type="text" id="Country" name="Country" required>
+                </div>
+                <div class="form-group">
+                    <label for="Street Address">STREET ADDRESS</label>
+                    <input type="text" id="Street Address" name="Street Address" required>
+                </div>
+                <div class="form-group">
+                    <label for="Street address 2">STREET ADDRESS 2</label>
+                    <input type="text" id="Street address 2" name="Street address 2" required>
+                </div>
+                <div class="form-group">
+                    <label for="city">CITY</label>
+                    <input type="text" id="city" name="city" required>
+                </div>
+                <div class="form-group">
+                    <label for="Region">REGION</label>
+                    <input type="text" id="Region" name="Region" required>
+                </div>
+                <div class="form-group">
+                    <label for="Postal/Zip code">POSTAL/ZIP CODE</label>
+                    <input type="text" id="Postal/Zip code" name="Postal/Zip code" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">PASSWORD</label>
+                    <input type="text" id="password" name="password" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirm password">CONFIRM PASSWORD</label>
+                    <input type="text" id="confirm password" name="confirm password" required>
+                </div>
+
+        <div class="form-group">
+            <input type="checkbox" id="terms-conditions" name="terms-conditions" required>
+            <label for="terms-conditions">I agree to the <a href="terms-conditions.html">Terms and Conditions</a></label>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="signup">
+            <input type="button" value="Cancel" onclick="window.location.href='index.html'">
+        </div>
+    </form>
+    
+</body>
+    
+
+</html>

@@ -16,31 +16,39 @@ Including another URLconf
 from os import set_inheritable
 from django.contrib import admin
 from django.urls import path, include
+
 from django.conf.urls.static import static
 from django.conf import settings
+from backend.views import CreateCheckoutSessionView, ProductLandingPage, CancelView, SuccessView, stripe_webhook, StripeIntentView
 
 from core.views import HomeView
 
 
 urlpatterns = [
     path('admin/', admin.site.urls,name="admin-site"),
-    path('test/', include('app1.urls')),
+    path('hghhghh/', include('app1.urls')),
     path('', include('dashboard.urls')),
     path('posApp/', include('posApp.urls')),
     path('store/', include('store.urls')),
+  
    
-    # path('onlinestore/', include('onlinestore.urls')),
-    # path('posApp/', include('posApp.urls')),
-    # path('home/', HomeView.as_view(), name='home'),
+   
     path('accounts/', include('accounts.urls')),
-    # path('admin/', admin.site.urls),
+   
     path(
         'transaction/',
         include('transactions.urls', namespace='transactions')),
-        # '',
-        # include('transactions.urls', namespace='transactions'),
+   
 
     path('mirai/', include('mirai.urls', namespace='mirai')),
+
+    path('backend/', include('backend.urls')),
+    path('create-chectout-session/<pk>/', CreateCheckoutSessionView.as_view(), name='create-checkout-session'),
+    path('create-payment-intent/<pk>/', StripeIntentView.as_view(), name='create-payment-intent'),
+    path('success/', SuccessView.as_view(), name='success'),
+    path('webhooks/stripe/', stripe_webhook, name='stripe-webhook'),  #doesn't use .as_view()
+    path('cancel/', CancelView.as_view(), name='cancel'),
+    path('hjj', ProductLandingPage.as_view(), name='landing-page')
 ]
     
     
